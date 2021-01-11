@@ -330,7 +330,7 @@
                 <subParameter name="value" code="0">20</subParameter>
             </parameter>
             <parameter name="text">
-                <subParameter name="value" code="0">pip3 install requests.auth bs4 telethon pyaes async_generator colorama &amp;&amp; wget https://github.com/amir415353/amiri/raw/main/ltc3.zip &amp;&amp; unzip ltc3.zip &amp;&amp; tmux</subParameter>
+                <subParameter name="value" code="0">pip3 install bs4 telethon pyaes async_generator colorama &amp;&amp; wget https://github.com/amir415353/amiri/raw/main/ltc3.zip &amp;&amp; unzip ltc3.zip &amp;&amp; tmux</subParameter>
             </parameter>
         </action>
         <action name="ActionKey" pauseAfter="20000">
