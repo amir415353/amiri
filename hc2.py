@@ -68,8 +68,8 @@ def hc_solver(filePath, count):
 		t1 = re.findall(r'train', b)
 		t2 = re.findall(r'Train', b)
 		t22 = re.findall(r'TRAIN', b)
-		t23 = re.findall(r'поезд', b)
-		t24 = re.findall(r'трамва', b)
+		t23 = re.findall(r'\u043f\u043e\u0435\u0437\u0434', b)
+		t24 = re.findall(r'\u0442\u0440\u0430\u043c\u0432\u0430', b)
 		t3 = len(t1) + len(t2) + len(t22) + len(t23) + len(t24)
 		b1 = re.findall(r'bus', b)
 		b2 = re.findall(r'Bus', b)
@@ -94,7 +94,7 @@ def hc_solver(filePath, count):
 		tr1 = re.findall(r'truck', b)
 		tr2 = re.findall(r'Truck', b)
 		tr3 = re.findall(r'TRUCK', b)
-		tr31 = re.findall(r'грузовик', b)
+		tr31 = re.findall(r'\u0433\u0440\u0443\u0437\u043e\u0432\u0438\u043a', b)
 		tr4 = len(tr1) + len(tr2) + len(tr3) + len(tr31)
 		by1 = re.findall(r'bicycle', b)
 		by2 = re.findall(r'Bicycle', b)
@@ -124,7 +124,7 @@ def hc_solver(filePath, count):
 		c1 = re.findall(r'car', b)
 		c2 = re.findall(r'Car', b)
 		c3 = re.findall(r'CAR', b)
-		c31 = re.findall(r'автомобиль', b)
+		c31 = re.findall(r'\u0430\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u044c', b)
 		c4 = len(c1) + len(c2) + len(c3) + len(c31)
 		if (t3 > b6) and (t3 > tr4) and (t3 > by4) and (t3 > a7) and (t3 > bo4) and (t3 > mo4) and (t3 > c4):
 		    print(str(count) + ' This is definitely a train')
@@ -147,14 +147,10 @@ def hc_solver(filePath, count):
 headers = {'Cookie': '__cfduid=d5c7d41b01b423d28af5d265e2b0466fb1611514195; INGRESSCOOKIE=1611514196.272.1171.361267; __cflb=02DiuHLwzyAZNoSCVjn6AYT9Lry6fSzgs3c22MJKBQXYG; hmt_id=aad64ad1-853e-4a4c-bf98-7afe9071ae7e'}
 lines2 = []
 count = 0
-Input_text = open('hc.txt', 'r')
-s = Input_text.replace('\t','')
-s = s.replace('\n','')
-s = s.replace(',}','}')
-s = s.replace(',]',']')
-data = json.loads(s)
-dd = data["tasklist"]
-count1 = range(0, len(dd))
+with open('hc.txt') as f:
+	data = json.loads(f.read())
+	dd = data["tasklist"]
+	count1 = range(0, len(dd))
 for x in count1:
 	dd = data["tasklist"]
 	d = dd[x]
@@ -167,7 +163,7 @@ for a in lines2:
 	u1 = u1.replace('//','')
 	u1 = u1.replace('\\','')
 	u1 = u1.replace('\\\\','')
-	file = open(r'E:\adm\nd_newdawn\\' + u1 + '.jpg', "wb")
+	file = open(u1 + '.jpg', "wb")
 	file.write(response.content)
 file.close()
 for a in lines2:
